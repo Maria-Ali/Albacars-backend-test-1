@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>API Test</title>
+</head>
+
+<body>
+    <h1>Test Your API</h1>
+
+    <form enctype="multipart/form-data" method="POST">
+        <input type="file" id="mainImage" name="main_image">
+        <input type="file" id="additionalImages" name="additional_images" multiple>
+
+    </form>
+
+    <button onclick="addBlogPost()">Add Blog Post</button>
+
+    <script>
+        async function addBlogPost() {
+            const apiUrl = 'http://localhost:3000/api/blog/add';
+
+            const formData = new FormData();
+            formData.append('title', 'Sample Title');
+            formData.append('description', 'Sample Description');
+            formData.append('main_image', document.querySelector('#mainImage').files[0]);
+            formData.append('date_time', Math.floor(Date.now() / 1000)); // Unix timestamp
+
+            // Add additional_images (if needed)
+            const additionalImages = document.querySelector('#additionalImages').files;
+            for (const file of additionalImages) {
+                formData.append('additional_images', file);
+            }
+
+            try {
+                const response = await fetch(apiUrl, {
+                    method: 'POST',
+                    body: formData,
+                });
+                console.log(response," response")
+                if (response.ok) {
+                    const data = await response.json();
+                    alert('Blog post added successfully!');
+                    console.log(data);
+                } else {
+                    const errorData = await response.json();
+                    alert('Error: ' + JSON.stringify(errorData));
+                }
+            } catch (error) {
+                console.log('Error:', error);
+                alert('An error occurred while adding the blog post.');
+            }
+        }
+    </script>
+</body>
+
+</html>

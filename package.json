@@ -1,0 +1,32 @@
+{
+  "name": "Albacars-backend-test-1",
+  "version": "1.0.0",
+  "description": "This test is a 2-DAY test with 3 Parts.<br />\r Part 1: NodeJS + ExpressJS APIs Test<br />\r Part 2: JestJS tests Test<br />\r Part 3: CLEAN architecture with MongoDB Test",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node main/src/app.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Maria-Ali/Albacars-backend-test-1.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Maria-Ali/Albacars-backend-test-1/issues"
+  },
+  "homepage": "https://github.com/Maria-Ali/Albacars-backend-test-1#readme",
+  "dependencies": {
+    "dotenv": "^16.3.1",
+    "express": "^4.18.2",
+    "jsonwebtoken": "^9.0.2",
+    "multer": "^1.4.5-lts.1",
+    "sharp": "^0.32.6",
+    "slugify": "^1.6.6"
+  },
+  "devDependencies": {
+    "jest": "^29.7.0"
+  }
+}
